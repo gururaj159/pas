@@ -19,8 +19,8 @@
             height: 100%;
             overflow: hidden; 
             background-color: white;
-            /* Using Helvetica/Arial for that specific clean mobile look */
-            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            /* Standard San-Serif as seen in iOS apps */
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             display: flex;
             flex-direction: column;
         }
@@ -41,28 +41,28 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start; /* Aligns items to top to allow custom spacing */
+            justify-content: flex-start;
             padding-bottom: env(safe-area-inset-bottom);
             box-sizing: border-box;
         }
 
-        .header-section { width: 90%; margin-top: 5px; margin-bottom: 25px; }
+        .header-section { width: 90%; margin-top: 5px; margin-bottom: 20px; }
         .header-section h1 { margin: 0; font-size: 26px; font-weight: 700; color: #000; letter-spacing: -0.5px; }
         .header-section p { margin: 2px 0 0; color: var(--text-grey); font-size: 16px; }
 
         .security-graphic {
             position: relative;
             width: 100%;
-            height: 170px;
+            height: 160px;
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
         }
 
         .breathing-ring {
-            width: 115px; 
-            height: 115px;
+            width: 110px; 
+            height: 110px;
             border-radius: 50%;
             border-style: solid;
             border-color: var(--brand-orange);
@@ -84,15 +84,17 @@
             z-index: 10;
         }
 
-        .globe-img { width: 15px; height: 15px; margin-right: 4px; }
-        .logo-txt { color: #000; font-weight: 600; font-style: italic; font-size: 15px; letter-spacing: -0.2px; }
+        .globe-img { width: 14px; height: 14px; margin-right: 4px; }
+        .logo-txt { color: #000; font-weight: 600; font-style: italic; font-size: 14px; letter-spacing: -0.2px; }
 
+        /* Adjusted Time Thickness */
         .clock-display { 
-            font-size: 62px; 
-            font-weight: 800; /* Heavier weight for the time */
-            letter-spacing: -2px; 
+            font-size: 58px; 
+            font-weight: 700; /* Standard Bold instead of 800/900 */
+            letter-spacing: -1.5px; 
             color: #333; 
-            margin: 0; /* Removed margin to bring card up */
+            margin: 0; 
+            line-height: 1;
         }
 
         .info-card {
@@ -102,12 +104,12 @@
             padding: 20px;
             box-shadow: 0 2px 12px rgba(0,0,0,0.04);
             box-sizing: border-box;
-            margin-top: 15px; /* Control distance between Time and Card here */
+            margin-top: 10px; /* Reduced distance to bring card up */
         }
 
-        .ticket-title { font-size: 22px; font-weight: 400; margin-bottom: 8px; color: #222; }
-        .region-list { font-size: 13px; color: #888; line-height: 1.4; margin-bottom: 25px; }
-        .expiry-line { font-size: 17px; font-weight: 500; border-top: 1px solid #f8f8f8; padding-top: 15px; color: #444; }
+        .ticket-title { font-size: 21px; font-weight: 400; margin-bottom: 8px; color: #222; }
+        .region-list { font-size: 12.5px; color: #888; line-height: 1.4; margin-bottom: 25px; }
+        .expiry-line { font-size: 16.5px; font-weight: 500; border-top: 1px solid #f8f8f8; padding-top: 15px; color: #444; }
 
     </style>
 </head>
@@ -149,7 +151,6 @@
         function runTicket() {
             const now = new Date();
             
-            // Format Time exactly as 4:06:26 PM
             let hours = now.getHours();
             let minutes = now.getMinutes();
             let seconds = now.getSeconds();
@@ -161,7 +162,6 @@
             
             document.getElementById('clock-live').textContent = hours + ':' + minutes + ':' + seconds + ' ' + ampm;
 
-            // Auto Expiry Logic (Next day 2 AM)
             const exp = new Date();
             exp.setHours(2, 0, 0, 0);
             if (now.getHours() >= 2) { exp.setDate(now.getDate() + 1); }
