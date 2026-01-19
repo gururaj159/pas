@@ -45,7 +45,13 @@
             box-sizing: border-box;
         }
 
-        .header-section { width: 90%; margin-top: 5px; margin-bottom: 20px; }
+        /* 1. Adjust this margin-top to move the text AND the circle down together */
+        .header-section { 
+            width: 90%; 
+            margin-top: 15px; 
+            margin-bottom: 20px; 
+        }
+        
         .header-section h1 { margin: 0; font-size: 26px; font-weight: 700; color: #000; letter-spacing: -0.5px; }
         .header-section p { margin: 2px 0 0; color: var(--text-grey); font-size: 16px; }
 
@@ -56,10 +62,12 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            /* ADD THIS LINE TO PUSH CIRCLE DOWN */
-            margin-top: 80px;
-            /* Added margin here to push the time down */
-            margin-bottom: 95px; 
+            
+            /* 2. INCREASE THIS to push the circle away from the header */
+            margin-top: 60px; 
+            
+            /* 3. INCREASE THIS to push the time away from the circle */
+            margin-bottom: 80px; 
         }
 
         .breathing-ring {
