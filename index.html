@@ -181,5 +181,10 @@
         setInterval(runTicket, 1000);
         runTicket();
     </script>
+    <script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js');
+  }
+</script>
 </body>
 </html>
