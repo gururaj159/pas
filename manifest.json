@@ -1,15 +1,18 @@
 {
   "name": "CTtransit",
   "short_name": "CTtransit",
-  "start_url": "./index.html",
+  "start_url": "/pas/",
+  "scope": "/pas/",
   "display": "standalone",
+  "orientation": "portrait",
   "background_color": "#ffffff",
   "theme_color": "#ffffff",
   "icons": [
     {
       "src": "https://img.icons8.com/color/512/bus.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ]
 }
